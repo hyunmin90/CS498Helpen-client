@@ -1,18 +1,10 @@
 <div class="list" ng-controller='FirstController'>		
-  First Controller
-	<form>
-	  <div class="row">
-          <div class="small-12 columns">
-            <input ng-model="data" type="text" placeholder="data">
-          </div>
-      </div>
-
-    <div class="text-center">
-      <button ng-click="setData()" class="button tiny info">Set Data</button>
-    </div>
-
-    {{displayText}}
-
-  </form>
+  <div class="grid-block">
+        <div class="grid-block show-for-medium medium-6">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12697.758051669445!2d-121.95161!3d37.284716!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe18714a9ccfec34d!2sZURB!5e0!3m2!1sen!2sus!4v1417659982534" width="100%" height="1200px" frameborder="0" style="border:0"></iframe>
+        </div>
+        <div ng-class="['ui-animation']" ui-view class="grid-block small-12 medium-6 wrap main-content">
+        </div>
+  </div>
 </div>
 
