@@ -1,4 +1,4 @@
-# Starter files for MP3 client side
+# Client side code for project helpen
 Use the following commands in your vagrant development environment to get this up and running
 ```bash
 git clone https://github.com/uiuc-web-programming/mp3_client_starter.git
