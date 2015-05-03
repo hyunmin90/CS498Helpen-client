@@ -4,15 +4,15 @@ var demoApp = angular.module('demoApp', ['ngRoute', 'demoControllers', 'demoServ
 
 demoApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/firstview', {
+    when('/subjects', {
     templateUrl: 'partials/firstview.html',
     controller: 'FirstController'
   }).
-  when('/secondview', {
+  when('/friends', {
     templateUrl: 'partials/secondview.html',
     controller: 'SecondController'
   }).
-  when('/settings', {
+  when('/reviews', {
     templateUrl: 'partials/settings.html',
     controller: 'SettingsController'
   }).
@@ -21,6 +21,6 @@ demoApp.config(['$routeProvider', function($routeProvider) {
     controller: 'LlamaListController'
   }).
   otherwise({
-    redirectTo: '/settings'
+    redirectTo: '/subjects'
   });
 }]);
