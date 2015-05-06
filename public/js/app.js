@@ -5,11 +5,11 @@ var demoApp = angular.module('demoApp', ['ngRoute', 'demoControllers', 'demoServ
 demoApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/subjects', {
-    templateUrl: 'partials/firstview.html',
+    templateUrl: 'partials/subjects.html',
     controller: 'FirstController'
   }).
   when('/friends', {
-    templateUrl: 'partials/secondview.html',
+    templateUrl: 'partials/friends.html',
     controller: 'FirstController'
   }).
   when('/reviews', {
