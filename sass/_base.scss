@@ -12,3 +12,32 @@ h1 {
   color: $blue;
 }
 
+
+.login-box {
+  width:100%;
+  background: #fff;
+  border: 1px solid #ddd; 
+  margin: 100px 0;
+  padding: 40px 20px 0 20px;
+}
+
+.register-box {
+  width:100%;
+  background: #fff;
+  border: 1px solid #ddd; 
+  margin: 100px 0;
+  padding: 40px 20px 0 20px;
+}
+.login-button{
+  padding-left:10px !important;
+  color:white !important;
+}
+
+
+.review-list{
+  width:100%;
+}
+.button{
+  background-color:black !important;
+  color:white !important;
+}

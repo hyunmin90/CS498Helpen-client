@@ -9,6 +9,7 @@
  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="./foundation/js/foundation.min.js"></script>
+  <script src="./foundation/js/foundation/foundation.reveal.js"></script>
   <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.js"></script>
   <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.1.0.min.js"></script>
   <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-templates-1.1.0.js"></script>
@@ -30,14 +31,58 @@
 
 <body>
 
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <form>
+       <div class="row">
+         <div class="large-12 columns">
+             <input type="text" name="username" placeholder="Username" />
+         </div>
+       </div>
+      <div class="row">
+         <div class="large-12 columns">
+             <input type="password" name="password" placeholder="Password" />
+         </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <input type="submit" class="button expand" value="Log In"/>
+        </div>
+      </div><a href="#" data-reveal-id="registerModal" class="">register</a>
+
+    </form>
+</div>
+  
+<div id="registerModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <form>
+       <div class="row">
+         <div class="large-12 columns">
+             <input type="text" name="username" placeholder="Username" />
+         </div>
+       </div>
+      <div class="row">
+         <div class="large-12 columns">
+             <input type="password" name="password" placeholder="Password" />
+         </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <input type="submit" class="button expand" value="Register"/>
+        </div>
+      </div>
+
+    </form>
+</div>  
   
 
-  
-  
+
 <div class="grid-frame vertical">
+  
   <div class="grid-block shrink wrap">
     <div class="grid-content collapse small-12 medium-6">
+      
       <ul class="menu-bar dark">
+        <a href="#" data-reveal-id="myModal" class="login-button">login</a>
         <li><a href="#/subjects">Helpen</a></li>
       </ul>
         </div>
@@ -71,6 +116,9 @@
   
   </script>
     <script src="./js/script.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
 
 </body>
 </html>

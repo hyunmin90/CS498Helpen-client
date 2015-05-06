@@ -65,3 +65,33 @@ h1 {
 .test {
   font-size: 1.2rem;
   color: #2176C7; }
+
+/* line 16, ../../sass/_base.scss */
+.login-box {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  margin: 100px 0;
+  padding: 40px 20px 0 20px; }
+
+/* line 24, ../../sass/_base.scss */
+.register-box {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  margin: 100px 0;
+  padding: 40px 20px 0 20px; }
+
+/* line 31, ../../sass/_base.scss */
+.login-button {
+  padding-left: 10px !important;
+  color: white !important; }
+
+/* line 37, ../../sass/_base.scss */
+.review-list {
+  width: 100%; }
+
+/* line 40, ../../sass/_base.scss */
+.button {
+  background-color: black !important;
+  color: white !important; }

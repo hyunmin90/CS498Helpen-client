@@ -13,7 +13,7 @@ demoApp.config(['$routeProvider', function($routeProvider) {
     controller: 'FirstController'
   }).
   when('/reviews', {
-    templateUrl: 'partials/login.html',
+    templateUrl: 'partials/reviews.html',
     controller: 'FirstController'
   }).
   when('/llamalist', {

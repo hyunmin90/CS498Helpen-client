@@ -14,8 +14,3 @@ function highlightThis(event) {
     alert(this.className);
     this.style.backgroundColor=backgroundColor;
 }
-
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-  });
-
