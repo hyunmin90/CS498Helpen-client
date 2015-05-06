@@ -1,45 +1,48 @@
 var demoControllers = angular.module('demoControllers', []);
 
-demoControllers.controller('FirstController', ['$scope', 'CommonData'  , function($scope, CommonData) {
-  $scope.data = "";
-   $scope.displayText = ""
+demoControllers.controller('FirstController', ['$scope', function($scope) {
+  // default location when gps not available
+  $scope.lat = 40.1095828;
+  $scope.lng = -88.2117322;
 
-  $scope.setData = function(){
-    CommonData.setData($scope.data);
-    $scope.displayText = "Data set"
+  navigator.geolocation.getCurrentPosition(
+      function(pos) {
+          // obtain coordinates
+          lat = pos.coords.latitude;
+          lng = pos.coords.longitude;
 
-  };
+          $scope.lat = lat;
+          $scope.lng = lng;
+      },
+
+      function(err) {
+          console.error("Error fetching gps coordinates.");
+      },
+
+      // GPS options
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      }
+  );
 
 }]);
 
-demoControllers.controller('SecondController', ['$scope', 'CommonData' , function($scope, CommonData) {
-  $scope.data = "";
+demoControllers.controller('SecondController', ['$scope',  function($scope) {
 
-  $scope.getData = function(){
-    $scope.data = CommonData.getData();
-
-  };
 
 }]);
 
 
-demoControllers.controller('LlamaListController', ['$scope', '$http', 'Llamas', '$window' , function($scope, $http,  Llamas, $window) {
+demoControllers.controller('LlamaListController', ['$scope', '$http', '$window' , function($scope, $http, $window) {
 
-  Llamas.get().success(function(data){
-    $scope.llamas = data;
-  });
+
 
 
 }]);
 
 demoControllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
-  $scope.url = $window.sessionStorage.baseurl;
-
-  $scope.setUrl = function(){
-    $window.sessionStorage.baseurl = $scope.url; 
-    $scope.displayText = "URL set";
-
-  };
 
 }]);
 
