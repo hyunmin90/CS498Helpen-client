@@ -10,11 +10,11 @@ demoApp.config(['$routeProvider', function($routeProvider) {
   }).
   when('/friends', {
     templateUrl: 'partials/secondview.html',
-    controller: 'SecondController'
+    controller: 'FirstController'
   }).
   when('/reviews', {
-    templateUrl: 'partials/settings.html',
-    controller: 'SettingsController'
+    templateUrl: 'partials/reviews.html',
+    controller: 'FirstController'
   }).
   when('/llamalist', {
     templateUrl: 'partials/llamalist.html',

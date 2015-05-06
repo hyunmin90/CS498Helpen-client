@@ -1,22 +1,20 @@
 var demoControllers = angular.module('demoControllers', []);
 
-demoControllers.controller('FirstController', ['$scope', 'CommonData'  , function($scope, CommonData) {
-  $scope.data = "";
-   $scope.displayText = ""
-
-  $scope.setData = function(){
-    CommonData.setData($scope.data);
-    $scope.displayText = "Data set"
-
+demoControllers.controller('FirstController', ['$scope','$http', 'CommonData','$window', function($scope,$http, CommonData,$window) {
+  $scope.subjects="";
+  $scope.getData = function(){
+    $scope.subjects = CommonData.getData();
+    alert(JSON.stringify($scope.subjects));
   };
+  
 
 }]);
 
 demoControllers.controller('SecondController', ['$scope', 'CommonData' , function($scope, CommonData) {
-  $scope.data = "";
+  $scope.subjects = "";
 
   $scope.getData = function(){
-    $scope.data = CommonData.getData();
+    $scope.subjects = CommonData.getData();
 
   };
 
@@ -31,16 +29,4 @@ demoControllers.controller('LlamaListController', ['$scope', '$http', 'Llamas', 
 
 
 }]);
-
-demoControllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
-  $scope.url = $window.sessionStorage.baseurl;
-
-  $scope.setUrl = function(){
-    $window.sessionStorage.baseurl = $scope.url; 
-    $scope.displayText = "URL set";
-
-  };
-
-}]);
-
 

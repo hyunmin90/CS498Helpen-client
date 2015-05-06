@@ -1,22 +1,11 @@
 // js/services/todos.js
-angular.module('demoServices', [])
-        .factory('CommonData', function(){
-        var data = "";
-        return{
-            getData : function(){
-                return data;
-            },
-            setData : function(newData){
-                data = newData;                
-            }
-        }
-    })
-    .factory('Llamas', function($http, $window) {      
+angular.module('demoServices', [])  
+    .factory('CommonData', function($http, $window) {      
         return {
-            get : function() {
-                var baseUrl = $window.sessionStorage.baseurl;
-                return $http.get(baseUrl+'/api/llamas');
+            getData : function() {
+                var val= $http.get("http://localhost:4000/api/subjects");
+                alert(JSON.stringify(val));
+                return val;
             }
         }
-    })
-    ;
+    });

@@ -3,23 +3,22 @@
       <h3>Choose your subjects to study</h3>
       </h3>
   </div>
-  <div class="grid-block small-12 small-up-2 medium-up-2 large-up-3">
-    <div class="grid-content">  <!--We will be using anular to route this many cards-->
-      <div class="dark card">
-        <img src="http://www.brainismindia.com/wp-content/uploads/2014/11/775-circuit-board-1366x768-abstract-wallpaper-2.jpg">
-        <div class="card-divider">
-          ECE330
-        </div>
-        <div class="card-section">
-          <h4>Are you ready for another cuircuit?</h4>
-          <p>Cuircuit world!.</p>
+<button ng-click="getData()" class="button tiny info">Get Data</button>
+<li ng-repeat="subject in subjects">
+    <div class="grid-block small-12 small-up-2 medium-up-2 large-up-3">
+      <div class="grid-content">  
+        <div class="dark card">
+          <img src="http://www.brainismindia.com/wp-content/uploads/2014/11/775-circuit-board-1366x768-abstract-wallpaper-2.jpg">
+          <div class="card-divider">
+            {{subject.name}}
+          </div>
+          <div class="card-section">
+            <h4>Are you ready for another cuircuit?</h4>
+            <p>Cuircuit world!.</p>
+          </div>
         </div>
       </div>
-    </div>
-    
-  </div> 
-
-  
-  
+    </div> 
+  </li>
 </div>
 
