@@ -5,6 +5,15 @@ demoControllers.controller('FirstController', ['$scope', function($scope) {
   $scope.lat = 40.1095828;
   $scope.lng = -88.2117322;
 
+    $scope.libraries=['grainger','UGL','ACES Library','Law Library'];
+  
+   $scope.master = {firstName:"John", lastName:"Doe"};
+    $scope.login = function() {
+        $scope.user = angular.copy($scope.master);
+    };
+    $scope.login();
+  
+  
   navigator.geolocation.getCurrentPosition(
       function(pos) {
           // obtain coordinates
@@ -45,5 +54,11 @@ demoControllers.controller('LlamaListController', ['$scope', '$http', '$window' 
 demoControllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
 
 }]);
+
+demoControllers.controller('formCtrl', function($scope) {
+    
+});
+
+
 
 
