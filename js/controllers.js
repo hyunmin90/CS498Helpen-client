@@ -68,6 +68,27 @@ demoControllers.controller('FirstController', ['$scope', 'User', function($scope
 
 }]);
 
+demoControllers.controller('LoginController', ['$scope',  function($scope) {
+  // $scope.login = function() {
+  //   User.login($scope.username, $scope.password).then(
+  //     function(resp) {
+  //       // repsonse received
+  //       alert("recvd back message");
+  //       console.log(resp);
+  //     },
+
+  //     function(resp) {
+  //       // fail
+  //       alert("User.login() failed");
+  //       console.log(resp);
+  //     }
+  //   );
+  // }
+
+
+}]);
+
+
 demoControllers.controller('SecondController', ['$scope',  function($scope) {
 
 
