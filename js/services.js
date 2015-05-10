@@ -5,7 +5,7 @@ angular.module('demoServices', [])
         checkin : function(userID, lat, lng) {
           return $http({
             method: 'POST',
-            url: 'http://localhost:4000/api/user' +
+            url: 'http://104.236.213.176:4000/api/user' +
             '?latlng=' + lat + ',' + lng + '&' +
             '?userID=' + userID
           });
@@ -13,14 +13,14 @@ angular.module('demoServices', [])
         getFriendList :function(lat, lng){
           return $http({
             method: 'GET',
-            url: 'http://localhost:4000/api/user' +
+            url: 'http://104.236.213.176:4000/api/user' +
             '?latlng=' + lat + ',' + lng});
         },
 
         addUser : function(username, password, name, email) {
           return $http({
             method: 'POST',
-            url: 'http://localhost:4000/api/user/adduser/',
+            url: 'http://104.236.213.176:4000/api/user/adduser/',
             data: $.param({
               name: name,
               email: email,
@@ -29,12 +29,13 @@ angular.module('demoServices', [])
             }),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
           });
-        } 
+        },
 
         login : function(username, password) {
+          console.log(username + password);
           return $http({
             method: 'POST',
-            url: 'http://localhost:4000/api/user/login/',
+            url: 'http://104.236.213.176:4000/api/login/',
             data: $.param({
               username: username,
               password: password

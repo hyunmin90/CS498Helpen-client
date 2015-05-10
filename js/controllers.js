@@ -5,8 +5,6 @@ demoControllers.controller('FirstController', ['$scope', 'User', function($scope
   $scope.lat = 40.1095828;
   $scope.lng = -88.2117322;
 
-  $scope.libraries=['grainger','UGL','ACES Library','Law Library'];
-
   $scope.regUser = function() {
     // add client-side input check
     if ($scope.username == "") return;
@@ -29,14 +27,14 @@ demoControllers.controller('FirstController', ['$scope', 'User', function($scope
   $scope.login = function() {
     User.login($scope.username, $scope.password).then(
       function(resp) {
-        // repsonse received
-        alert("recvd back message");
+        // success
+        alert("Login success");
         console.log(resp);
       },
 
       function(resp) {
         // fail
-        alert("User.login() failed");
+        alert("Login failed");
         console.log(resp);
       }
     );
