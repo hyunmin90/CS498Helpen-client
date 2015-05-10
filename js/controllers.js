@@ -7,22 +7,43 @@ demoControllers.controller('FirstController', ['$scope', 'User', function($scope
 
   $scope.libraries=['grainger','UGL','ACES Library','Law Library'];
 
-  $scope.login = function() {
+  $scope.regUser = function() {
+    // add client-side input check
+    if ($scope.username == "") return;
+
     User.addUser($scope.username, $scope.password, $scope.name, $scope.email).then(
       function(resp) {
-        // success
-        alert(resp);
+        // repsonse received
+        console.log(resp);
+        alert("Success!");
       },
 
       function(resp) {
         // fail
-        alert("fail");
+        alert("User.addUser() failed");
         console.log(resp);
       }
     );
   };
   
-  
+  $scope.login = function() {
+    User.login($scope.username, $scope.password).then(
+      function(resp) {
+        // repsonse received
+        alert("recvd back message");
+        console.log(resp);
+      },
+
+      function(resp) {
+        // fail
+        alert("User.login() failed");
+        console.log(resp);
+      }
+    );
+  }
+
+
+
   navigator.geolocation.getCurrentPosition(
       function(pos) {
           // obtain coordinates
