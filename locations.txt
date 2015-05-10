@@ -1,0 +1,76 @@
+{
+   "places": [
+      {
+         "Name": "Thomas M Siebel Centre for Computer Science",
+         "Lat": 40.113804,
+         "Long": -88.22491,
+		 "Radius":0.00026,
+      },
+      {
+         "Name": "Grainger Engineering Laboratory",
+         "Lat": 40.1125,
+         "Long": -88.22691,
+		 "Radius":0.00026,
+      },
+      {
+         "Name": "Digital Computer Laboratory",
+         "Lat": 40.113136,
+         "Long": -88.22666,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Coordinated Science Laboratory",
+         "Lat": 40.114956,
+         "Long": -88.22672,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Beckman Institute",
+         "Lat": 40.115803,
+         "Long": -88.227516,
+         "Radius":0.00026
+      },
+      {
+         "Name": "Electrical and Computer Engineering Building",
+         "Lat": 40.110523,
+         "Long": -88.26953,
+		 "Radius":0.00026,
+      },
+      {
+         "Name": "National Centre for Supercomputing Applications",
+         "Lat": 40.114918,
+         "Long": -88.22486,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Everitt Laboratory",
+         "Lat": 40.110523,
+         "Long": -88.26953,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Mechanical Engineering Building",
+         "Lat": 40.110996,
+         "Long": -88.22488,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Talbot Laboratory",
+         "Lat": 40.111862,
+         "Long": -88.228195,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Engineering hall",
+         "Lat": 40.11086,
+         "Long": -88.22688,
+         "Radius":0.00026,
+      },
+      {
+         "Name": "Micro and Nanotech Laboratory",
+         "Lat": 40.113834,
+         "Long": -88.2279,
+         "Radius":0.00026,
+      }
+   ]
+}
