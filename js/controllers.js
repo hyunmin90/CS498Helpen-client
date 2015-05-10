@@ -31,19 +31,29 @@ helpenControllers.controller('FirstController', ['$scope', 'User', function($sco
 
 helpenControllers.controller('LoginController', ['$scope', 'User', function($scope, User) {
   $scope.login = function() {
-    User.login($scope.username, $scope.password).then(
+    var id = $scope.username;
+    var pw = $scope.password;
+
+    User.login(id, pw).then(
       function(resp) {
-        // success
-        alert("Login success");
-        console.log(resp);
+        if (resp.status == 200) {
+          sessionStorage.setItem('login', id);
+          window.location.assign("/#/subjects");
+        } else {
+          alert("Login failed");
+          console.log(resp);
+        }
       },
 
       function(resp) {
-        // fail
         alert("Login failed");
         console.log(resp);
       }
     );
+  };
+
+  $scope.regUser = function(){
+    window.location.assign("/#/register");
   };
 }]);
 
