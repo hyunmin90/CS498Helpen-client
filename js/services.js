@@ -20,16 +20,18 @@ angular.module('demoServices', [])
         addUser : function(username, password, name, email) {
           console.log(username + password + name + email);
           return $http({
-            method: "POST",
-            url: "http://localhost:4000/api/user/adduser",
+            method: 'POST',
+            url: 'http://localhost:4000/api/user/adduser/',
             data: $.param({
               name: name,
               email: email,
               username: username,
               password: password
-            })
+            }),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).error(function(e){
+            return e;
           });
-        }
-        
+        } 
       }
     });

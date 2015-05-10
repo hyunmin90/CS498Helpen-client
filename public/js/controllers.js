@@ -1,17 +1,26 @@
 var demoControllers = angular.module('demoControllers', []);
 
-demoControllers.controller('FirstController', ['$scope', function($scope) {
+demoControllers.controller('FirstController', ['$scope', 'User', function($scope, User) {
   // default location when gps not available
   $scope.lat = 40.1095828;
   $scope.lng = -88.2117322;
 
-    $scope.libraries=['grainger','UGL','ACES Library','Law Library'];
-  
-   $scope.master = {firstName:"John", lastName:"Doe"};
-    $scope.login = function() {
-        $scope.user = angular.copy($scope.master);
-    };
-    $scope.login();
+  $scope.libraries=['grainger','UGL','ACES Library','Law Library'];
+
+  $scope.login = function() {
+    User.addUser($scope.username, $scope.password, $scope.name, $scope.email).then(
+      function(resp) {
+        // success
+        alert(resp);
+      },
+
+      function(resp) {
+        // fail
+        alert("fail");
+        console.log(resp);
+      }
+    );
+  };
   
   
   navigator.geolocation.getCurrentPosition(
