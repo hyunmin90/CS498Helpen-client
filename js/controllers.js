@@ -78,3 +78,10 @@ helpenControllers.controller('RegisterController', ['$scope', 'User', function($
     );
   };
 }]);
+
+helpenControllers.controller('SubjectController', ['$scope', 'User', function($scope, User) {
+  var user = sessionStorage.getItem('login');
+  if(user === undefined || user == "" || user == null) {
+    window.location.assign("/");
+  }
+}]);
