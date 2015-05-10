@@ -1,46 +1,9 @@
-var demoControllers = angular.module('demoControllers', []);
+var helpenControllers = angular.module('helpenControllers', []);
 
-demoControllers.controller('FirstController', ['$scope', 'User', function($scope, User) {
+helpenControllers.controller('FirstController', ['$scope', 'User', function($scope, User) {
   // default location when gps not available
   $scope.lat = 40.1095828;
   $scope.lng = -88.2117322;
-
-  $scope.regUser = function() {
-    // add client-side input check
-    if ($scope.username == "") return;
-
-    User.addUser($scope.username, $scope.password, $scope.name, $scope.email).then(
-      function(resp) {
-        // repsonse received
-        console.log(resp);
-        alert("Success!");
-      },
-
-      function(resp) {
-        // fail
-        alert("User.addUser() failed");
-        console.log(resp);
-      }
-    );
-  };
-  
-  $scope.login = function() {
-    User.login($scope.username, $scope.password).then(
-      function(resp) {
-        // success
-        alert("Login success");
-        console.log(resp);
-      },
-
-      function(resp) {
-        // fail
-        alert("Login failed");
-        console.log(resp);
-      }
-    );
-  }
-
-
 
   navigator.geolocation.getCurrentPosition(
       function(pos) {
@@ -66,48 +29,42 @@ demoControllers.controller('FirstController', ['$scope', 'User', function($scope
 
 }]);
 
-demoControllers.controller('LoginController', ['$scope',  function($scope) {
-  // $scope.login = function() {
-  //   User.login($scope.username, $scope.password).then(
-  //     function(resp) {
-  //       // repsonse received
-  //       alert("recvd back message");
-  //       console.log(resp);
-  //     },
+helpenControllers.controller('LoginController', ['$scope', 'User', function($scope, User) {
+  $scope.login = function() {
+    User.login($scope.username, $scope.password).then(
+      function(resp) {
+        // success
+        alert("Login success");
+        console.log(resp);
+      },
 
-  //     function(resp) {
-  //       // fail
-  //       alert("User.login() failed");
-  //       console.log(resp);
-  //     }
-  //   );
-  // }
-
-
+      function(resp) {
+        // fail
+        alert("Login failed");
+        console.log(resp);
+      }
+    );
+  };
 }]);
 
 
-demoControllers.controller('SecondController', ['$scope',  function($scope) {
+helpenControllers.controller('RegisterController', ['$scope', 'User', function($scope, User) {
+  $scope.regUser = function() {
+    // add client-side input check
+    if ($scope.username == "") return;
 
+    User.addUser($scope.username, $scope.password, $scope.name, $scope.email).then(
+      function(resp) {
+        // repsonse received
+        console.log(resp);
+        alert("Success!");
+      },
 
+      function(resp) {
+        // fail
+        alert("User.addUser() failed");
+        console.log(resp);
+      }
+    );
+  };
 }]);
-
-
-demoControllers.controller('LlamaListController', ['$scope', '$http', '$window' , function($scope, $http, $window) {
-
-
-
-
-}]);
-
-demoControllers.controller('SettingsController', ['$scope' , '$window' , function($scope, $window) {
-
-}]);
-
-demoControllers.controller('formCtrl', function($scope) {
-    
-});
-
-
-
-

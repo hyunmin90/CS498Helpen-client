@@ -1,5 +1,5 @@
 // js/services/todos.js
-angular.module('demoServices', [])
+angular.module('helpenServices', [])
     .factory('User', function($http){
       return {
         checkin : function(userID, lat, lng) {

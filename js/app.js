@@ -1,43 +1,41 @@
 'use strict';
  
-var demoApp = angular.module('demoApp', ['ngRoute', 'demoControllers', 'demoServices','demoDirectives', 'ngAnimate']);
+var helpen = angular.module('helpen', ['ngRoute', 'helpenControllers', 'helpenServices', 'ngAnimate']);
 
 
-var demoServices = angular.module('demoServices', []);
-var demoControllers = angular.module('demoControllers', []);
-var demoDirectives = angular.module('demoDirectives', []);
+var helpenServices = angular.module('helpenServices', []);
+var helpenControllers = angular.module('helpenControllers', []);
+//var demoDirectives = angular.module('demoDirectives', []);
 
-
-
-demoApp.config(['$locationProvider', '$routeProvider', 
+helpen.config(['$locationProvider', '$routeProvider', 
   function($location, $routeProvider) {
     $routeProvider.
       when('/subjects', {
       templateUrl: 'partials/subjects.html',
-      controller: 'FirstController'
+      controller: 'SubjectController'
     }).
     when('/friends', {
       templateUrl: 'partials/friends.html',
-      controller: 'FirstController'
+      controller: 'FriendController'
     }).
     when('/reviews', {
       templateUrl: 'partials/reviews.html',
-      controller: 'FirstController'
+      controller: 'ReviewController'
     }).
     when('/register', {
       templateUrl: 'partials/register.html',
-      controller: 'FirstController'
+      controller: 'RegisterController'
     }).
     when('/login', {
       templateUrl: 'partials/login.html',
-      controller: 'FirstController'
+      controller: 'LoginController'
     }).
     when('/', {
       templateUrl: 'partials/login.html',
-      controller: 'FirstController'
+      controller: 'LoginController'
     }).
     otherwise({
-      redirectTo: '/subjects'
+      redirectTo: '/login'
     });   
 }]);
 
