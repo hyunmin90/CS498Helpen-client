@@ -24,9 +24,9 @@ demoApp.config(['$locationProvider', '$routeProvider',
       templateUrl: 'partials/reviews.html',
       controller: 'FirstController'
     }).
-    when('/', {
-      templateUrl: 'partials/login.html',
-      controller: 'FirstController'
+    when('/test', {
+      templateUrl: 'partials/test.html',
+      controller: 'SecondController'
     }).
     otherwise({
       redirectTo: '/subjects'

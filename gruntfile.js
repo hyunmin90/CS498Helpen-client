@@ -16,8 +16,9 @@ module.exports = function(grunt) {
             'public/js/script.js': ['js/script.js'],
             'public/js/controllers.js': ['js/controllers.js'],
             'public/js/app.js': ['js/app.js'],
-            'public/js/services.js': ['js/services.js']
-        } //files
+            'public/js/services.js': ['js/services.js'],
+            'public/js/pubnub-angular.js': ['js/pubnhub-angular.js']	
+	} //files
       } //my_target
     }, //uglify
     copy: {

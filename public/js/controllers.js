@@ -39,7 +39,18 @@ demoControllers.controller('FirstController', ['$scope', function($scope) {
 }]);
 
 demoControllers.controller('SecondController', ['$scope',  function($scope) {
+  
+  var sock = new SockJS('http://localhost:4000/chat');
+  $scope.messages = [];
+        $scope.sendMessage = function() {
+            sock.send($scope.messageText);
+            $scope.messageText = "";
+        };
 
+        sock.onmessage = function(e) {
+            $scope.messages.push(e.data);
+            $scope.$apply();
+        };
 
 }]);
 
