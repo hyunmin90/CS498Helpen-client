@@ -84,4 +84,6 @@ helpenControllers.controller('SubjectController', ['$scope', 'User', function($s
   if(user === undefined || user == "" || user == null) {
     window.location.assign("/");
   }
+  $scope.user = user;
+
 }]);
