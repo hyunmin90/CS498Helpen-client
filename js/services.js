@@ -45,4 +45,17 @@ angular.module('demoServices', [])
 
 
       }
-    });
+    })
+    .factory('Location', function($http){
+      return {
+        presence :function (range,buildingLat,buildingLongt,currentLat,currentLongt) { 
+          var distance = Math.pow((buildingLat - currentLat),2) + Math.pow((buildingLongt - currentLongt),2);
+          if(distance <= Math.pow((range),2)) {
+            return true;
+          }
+          else {
+            return false;
+          }
+        },
+      }
+    })
