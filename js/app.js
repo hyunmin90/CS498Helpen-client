@@ -24,6 +24,14 @@ demoApp.config(['$locationProvider', '$routeProvider',
       templateUrl: 'partials/reviews.html',
       controller: 'FirstController'
     }).
+    when('/register', {
+      templateUrl: 'partials/register.html',
+      controller: 'FirstController'
+    }).
+    when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'FirstController'
+    }).
     when('/', {
       templateUrl: 'partials/login.html',
       controller: 'FirstController'
