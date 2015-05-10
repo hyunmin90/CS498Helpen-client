@@ -47,6 +47,13 @@ demoControllers.controller('FirstController', ['$scope', 'User', function($scope
 
 }]);
 
+
+demoControllers.controller('LoginController', ['$scope',  function($scope) {
+
+
+}]);
+
+
 demoControllers.controller('SecondController', ['$scope',  function($scope) {
 
 
