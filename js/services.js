@@ -364,14 +364,15 @@ angular.module('helpenServices', [])
           });
         },
 
-        login : function(username, password) {
+        login : function(username, password, building) {
           console.log(username + password);
           return $http({
             method: 'POST',
             url: 'http://helpenme.com:4000/api/login/',
             data: $.param({
               username: username,
-              password: password
+              password: password,
+              location: building
             }),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
           });
@@ -381,12 +382,14 @@ angular.module('helpenServices', [])
       }
     })  
     .factory('Subject', function($http){
+      var currsubject = "";
       return {
         getSubjects : function() {
           return classes.subject;
         },
 
         setSubject : function(user, subject) {
+          currsubject = subject;  
           return $http({
             method: 'POST',
             url: 'http://helpenme.com:4000/api/user/addsubject',
@@ -396,6 +399,12 @@ angular.module('helpenServices', [])
             }),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
           });
+        },
+        getPeoplefromSubject : function() {
+            return $http({
+                method:'GET',
+                url: 'http://helpenme.com:4000/api/user'
+            });
         }
       }
     }).
@@ -429,6 +438,7 @@ angular.module('helpenServices', [])
             }
           return 0;
           });
+          console.log(arr);
           return arr;
       
         },
