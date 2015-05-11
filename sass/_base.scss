@@ -93,3 +93,62 @@ button{
   background-color:black !important;
   color:black;
 }
+
+
+@-webkit-keyframes blackPulse {
+  from { background-color: #000; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #000; -webkit-box-shadow: 0 0 18px #000; }
+  to { background-color: #000; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes skyPulse {
+  from { background-color: #1fbad6; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #1fbad6; -webkit-box-shadow: 0 0 18px #000; }
+  to { background-color: #1fbad6; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+a.sky.button {
+  -webkit-animation-name: skyPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+
+a.black.button {
+  -webkit-animation-name: blackPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.login-title{
+  text-align:center;
+  
+}
+
+.focused-view-subtitle {
+  font-size: 17px;
+  color: #c2c2c2;
+  text-transform: uppercase;
+}
+
+p {
+  line-height: 27px;
+}
+
+.border-center>span {
+  display: inline-block;
+  padding: 0 20px;
+  background: #fff;
+}
+
+.border-center:after {
+  background: #000;
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: -12px;
+}
+.center{
+  text-align:center;
+}
