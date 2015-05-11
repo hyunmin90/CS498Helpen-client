@@ -455,5 +455,30 @@ angular.module('helpenServices', [])
         all : function() {
           return locations.places;
         }
-    }
-});
+       }
+    }).
+    factory('Review', function($http) {
+        return {
+         getReview:function() {
+            // return $http({
+            // method: 'GET',
+            // url: 'http://104.236.213.176:4000/api/user' +
+            // '?latlng=' + lat + ',' + lng});
+
+            },
+         sendReview:function(buildingID, rating, numberOfParticipants) {
+          //   return $http({
+          //   method: 'POST',
+          //   url: 'http://104.236.213.176:4000/api/user/adduser/',
+          //   data: $.param({
+          //     building: name,
+          //     email: email,
+          //     username: username,
+          //     password: password
+          //   }),
+          //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          // });
+
+           }
+        }
+    });
