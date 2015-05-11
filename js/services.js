@@ -178,17 +178,32 @@ angular.module('helpenServices', [])
           var arr =[];
           var list = locations.places;
           for(i=0;i<list.length;i++) {
+            var element = list[i];
             var lat = list[i].Lat;
             var longt = list[i].Long;
             var latr = list[i].Latituderange;
             var longtr = list[i].Longituderange;
-            if((lat - latr) <=  currlat && currlat<=(lat + latr)) {
-              if((longt - longtr) <=  currlongt && currlongt<=(longt + longtr)) {
-                arr.push(list[i]);
-              }
-            }
+            var distance = 0;
+             if((lat - latr) <=  currlat && currlat<=(lat + latr)) {
+               if((longt - longtr) <=  currlongt && currlongt<=(longt + longtr)) {
+                distance = Math.pow(Math.abs(longt - currlongt),2) + Math.pow(Math.abs(lat - currlat),2);
+                distance = Math.sqrt(distance);
+                element["Distance"] = distance;
+                arr.push(element);
+               }
+             }
           }
+          arr.sort(function (a, b) {
+          if (a.Distance > b.Distance) {
+            return 1;
+            }
+          if (a.Distance < b.Distance) {
+            return -1;
+            }
+          return 0;
+          });
           return arr;
+      
         }
       }
     });
