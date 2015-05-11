@@ -59,35 +59,6 @@ helpenControllers.controller('LoginController', ['$scope', 'User', function($sco
 }]);
 
 
-
-helpenControllers.controller('ChatController', ['$scope','User', '$routeParams', function($scope, User, $routeParams) {
-  var user = sessionStorage.getItem('login');
-  var sock = new SockJS('http://localhost:4000/chat/'+$routeParams.id);
-  
-  $scope.messages = [];
-        $scope.sendMessage = function() {
-            sock.send($scope.messageText);
-            $scope.messageText = "";
-        };
-
-        sock.onmessage = function(e) {
-            $scope.messages.push(e.data);
-            $scope.$apply();
-        };
-
-  
-  
-  //if(user === undefined || user == "" || user == null) {
-    //window.location.assign("/");
-  //}
-  $scope.user = user;
-  
-}]);
-
-
-
-
-
 helpenControllers.controller('RegisterController', ['$scope', 'User', function($scope, User) {
   $scope.regUser = function() {
     // add client-side input check
@@ -162,7 +133,20 @@ helpenControllers.controller('ReviewController', ['$scope', 'Location', function
 }]);
 
 helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
-  alert($routeParams.id);
   $scope.id = $routeParams.id;
+
+  var sock = new SockJS('http://localhost:4000/chat/'+$routeParams.id);
+  
+  $scope.messages = [];
+  $scope.sendMessage = function() {
+      sock.send($scope.messageText);
+      $scope.messageText = "";
+  };
+
+  sock.onmessage = function(e) {
+      $scope.messages.push(e.data);
+      $scope.$apply();
+  };
+
 
 }]);

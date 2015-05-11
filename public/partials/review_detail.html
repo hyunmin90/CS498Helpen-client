@@ -11,13 +11,17 @@
 			Crowded: Barely<br>
 		</div>
 	</div>
-
-	<div class="card">
-		<p>Chat with people in {{id}}:</p>
-		> User1: yo<br>
-		> User2: hey<br>
-		> User3: anyone studying 374<br>
-		<input type="text" placeholder="Chat with strangers..">
+	
+	<div class="chat row">
+	    <ul>
+	      <li ng-repeat="message in messages track by $index">{{message}}</li>
+	    </ul>
+	  <div class="small-8 columns">
+	    <form ng-submit="sendMessage()">
+	      <input type="text" ng-model="messageText" placeholder="Talk to your pals" />
+	      <button type="submit" value="Send">Send</button>
+	    </form>
+	  </div>
 	</div>
 </div>
 </div>

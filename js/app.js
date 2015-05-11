@@ -34,10 +34,6 @@ helpen.config(['$locationProvider', '$routeProvider',
       templateUrl: 'partials/login.html',
       controller: 'LoginController'
     }).
-    when('/chat/:id', {
-      templateUrl: 'partials/test.html',
-      controller: 'ChatController'
-    }). 
     when('/', {
          templateUrl: 'partials/login.html',
       controller: 'LoginController'
