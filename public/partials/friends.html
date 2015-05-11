@@ -5,35 +5,11 @@
   </div>
   <!--NG REPEAT HERE USE JSON TO REPEAT THE PROCESS-->
     <div class="grid-block small-12 small-up-2 medium-up-2 large-up-3">
-      <div class="grid-content">  
+      <div class="grid-content" ng-repeat = "friend in friends">  
         <div class="dark card">
           <img src="https://scontent-ord.xx.fbcdn.net/hphotos-xft1/v/t1.0-9/11091572_10203943753289458_208331308465859103_n.jpg?oh=706593250f9bece2b66ab669563ad1b2&oe=55D8D52B">
           <div class="card-divider">
-            Steve
-          </div>
-          <div class="card-section">
-            <h4>Subject Studying</h4>
-            <p>Cuircuit world!.</p>
-          </div>
-        </div>
-      </div>
-      <div class="grid-content">  
-        <div class="dark card">
-          <img src="https://scontent-ord.xx.fbcdn.net/hphotos-xft1/v/t1.0-9/11091572_10203943753289458_208331308465859103_n.jpg?oh=706593250f9bece2b66ab669563ad1b2&oe=55D8D52B">
-          <div class="card-divider">
-            Steve
-          </div>
-          <div class="card-section">
-            <h4>Subject Studying</h4>
-            <p>Cuircuit world!.</p>
-          </div>
-        </div>
-      </div>
-      <div class="grid-content">  
-        <div class="dark card">
-          <img src="https://scontent-ord.xx.fbcdn.net/hphotos-xft1/v/t1.0-9/11091572_10203943753289458_208331308465859103_n.jpg?oh=706593250f9bece2b66ab669563ad1b2&oe=55D8D52B">
-          <div class="card-divider">
-            Steve
+            {{friend.Name}}
           </div>
           <div class="card-section">
             <h4>Subject Studying</h4>

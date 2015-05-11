@@ -106,11 +106,37 @@ helpenControllers.controller('RegisterController', ['$scope', 'User', function($
   };
 }]);
 
-helpenControllers.controller('SubjectController', ['$scope', 'User', function($scope, User) {
+helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', function($scope, User,Subject) {
   var user = sessionStorage.getItem('login');
   if(user === undefined || user == "" || user == null) {
     window.location.assign("/");
   }
   $scope.user = user;
+  $scope.subjects = Subject.getSubjects();
+  //console.log($scope.subjects);
+
+
+}]);
+
+helpenControllers.controller('FriendController', ['$scope', 'User', function($scope, User) {
+  var user = sessionStorage.getItem('login');
+  // if(user === undefined || user == "" || user == null) {
+  //   window.location.assign("/");
+  // }
+  $scope.user = user;
+  //$scope. = Subject.getSubjects();
+  $scope.friends = 
+         [{
+            "Name": "Hyounimin Wang",
+         },
+         {
+            "Name": "Dongmin Shin",
+         },
+         {
+            "Name": "Joon Hyung",
+         },
+         {
+            "Name": "Praful Mehrotra",
+         }];
 
 }]);

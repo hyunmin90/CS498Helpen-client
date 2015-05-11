@@ -59,5 +59,19 @@ angular.module('helpenServices', [])
           }
         },
       }
-    }
-    );
+    })
+    .factory('Subject', function($http){
+      return {
+        getSubjects:function() {
+         var subjectList = 
+         [
+         {
+            "Name": "ECE 330",
+         },
+         {
+            "Name": "CS 440",
+         }];
+        return subjectList;
+        }
+      }
+    });
