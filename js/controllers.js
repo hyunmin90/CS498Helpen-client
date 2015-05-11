@@ -138,10 +138,11 @@ helpenControllers.controller('ReviewController', ['$scope', 'Location', function
 
 }]);
 
-helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', 'Location', function($scope, $routeParams, Location) {
+helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', 'Location','Review', function($scope, $routeParams, Location,Review) {
   $scope.id = $routeParams.id;
   $scope.location = Location.getLocationByID($scope.id);
   console.log($scope.location);
+  $scope.currat = 0;
 
   var sock = new SockJS('http://helpenme.com:4000/chat/'+$routeParams.id);
   
@@ -155,6 +156,55 @@ helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams'
       $scope.messages.push(e.data);
       $scope.$apply();
   };
+  console.log($scope.id);
+  $scope.review = function() {
+    if($scope.overall == undefined) {
+      $scope.overall ="";
+      alert("Invalid input!");
+    }
+    else if($scope.overall > 10 || $scope.overall < 0) {
+      alert("Input out of range!");
+    }
+    else {
+      Review.getReview($scope.id).then(
+      function(resp) {
+        // repsonse received
+        console.log(resp);
+        var response = resp.data.data;
+        console.log(response);
+        var oldr = response.rating;
+        var oldc = response.numberOfParticipant;
+        rating = oldr*oldc;
+        rating = rating + parseInt($scope.overall);
+        var number = response.numberOfParticipant + 1;
+        response.numberOfParticipant = number;
+        rating = rating/number;
+        response.rating = rating;
+        $scope.currat = rating;
+        Review.sendReview($scope.id,response.rating,response.numberOfParticipant).then(
+          function(resp) {
+            console.log("success!");
+            console.log(resp);
+          },
+          function(resp) {
+            console.log("failure!");
+          });
+      },
+
+      function(resp) {
+        Review.addreview($scope.id,$scope.overall,1).then(
+          function(resp) {
+            console.log(resp);
+            console.log("added");
+          },
+          function(resp) {
+            console.log(resp);
+          });
+        }
+    );
+
+    }
+  }
 
 
 }]);
