@@ -63,7 +63,7 @@ helpenControllers.controller('LoginController', ['$scope', 'User', function($sco
 helpenControllers.controller('ChatController', ['$scope', 'User', function($scope, User) {
   var user = sessionStorage.getItem('login');
   
-    var sock = new SockJS('http://localhost:4000/chat');
+    var sock = new SockJS('http://helpenme.com:4000/chat');
   $scope.messages = [];
         $scope.sendMessage = function() {
             sock.send($scope.messageText);
@@ -115,16 +115,22 @@ helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', f
   $scope.subjects = Subject.getSubjects();
   //console.log($scope.subjects);
 
+  
+
+
+
+ 
+
 
 }]);
 
 helpenControllers.controller('FriendController', ['$scope', 'User', function($scope, User) {
   var user = sessionStorage.getItem('login');
-  // if(user === undefined || user == "" || user == null) {
-  //   window.location.assign("/");
-  // }
+  if(user === undefined || user == "" || user == null) {
+    window.location.assign("/");
+  }
   $scope.user = user;
-  //$scope. = Subject.getSubjects();
+  $scope. = Subject.getSubjects();
   $scope.friends = 
          [{
             "Name": "Hyounimin Wang",
