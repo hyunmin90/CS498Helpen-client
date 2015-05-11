@@ -290,3 +290,11 @@ p {
 /* line 234, ../../sass/_base.scss */
 .card-selection {
   background-color: grey !important; }
+
+/* line 239, ../../sass/_base.scss */
+.register {
+  -webkit-animation-name: blackPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  text-align: center;
+  margin-left: 1rem; }
