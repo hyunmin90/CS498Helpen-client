@@ -63,7 +63,7 @@ helpenControllers.controller('LoginController', ['$scope', 'User', function($sco
 helpenControllers.controller('ChatController', ['$scope', 'User', function($scope, User) {
   var user = sessionStorage.getItem('login');
   
-    var sock = new SockJS('http://localhost:4000/chat');
+    var sock = new SockJS('http://helpenme.com:4000/chat');
   $scope.messages = [];
         $scope.sendMessage = function() {
             sock.send($scope.messageText);
