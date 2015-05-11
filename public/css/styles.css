@@ -89,87 +89,78 @@ h1 {
 
 /* line 37, ../../sass/_base.scss */
 .review-list {
-  width: 100%; }
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95) !important; }
 
-/* line 40, ../../sass/_base.scss */
+/* line 41, ../../sass/_base.scss */
 .button {
   background-color: black !important;
   color: white !important; }
 
-/* line 45, ../../sass/_base.scss */
+/* line 46, ../../sass/_base.scss */
 li {
   list-style: none; }
 
-/* line 46, ../../sass/_base.scss */
+/* line 47, ../../sass/_base.scss */
 body {
   margin: 50px;
   background-color: #333;
   color: #ccc;
   overflow: hidden; }
 
-/* line 47, ../../sass/_base.scss */
+/* line 48, ../../sass/_base.scss */
 h3 {
   color: #fff; }
 
-/* line 48, ../../sass/_base.scss */
+/* line 49, ../../sass/_base.scss */
 .animate-enter, .animate-leave {
   transition: 500ms ease-in all;
   position: relative;
   display: block; }
 
-/* line 53, ../../sass/_base.scss */
+/* line 54, ../../sass/_base.scss */
 .animate-enter.animate-enter-active, .animate-leave {
   left: 0; }
 
-/* line 56, ../../sass/_base.scss */
+/* line 57, ../../sass/_base.scss */
 .animate-leave.animate-leave-active, .animate-enter {
   left: 500px; }
 
-/* line 59, ../../sass/_base.scss */
+/* line 60, ../../sass/_base.scss */
 .lookup {
   padding-left: 1rem; }
 
-/* line 63, ../../sass/_base.scss */
+/* line 64, ../../sass/_base.scss */
 .search {
   width: 90% !important;
   height: 3.16rem !important; }
 
-/* line 68, ../../sass/_base.scss */
+/* line 69, ../../sass/_base.scss */
 h2 {
   text-align: center; }
 
-/* line 72, ../../sass/_base.scss */
+/* line 73, ../../sass/_base.scss */
 .login-button {
   background-image: url("/image/User-Group.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 2.6rem; }
 
-/* line 78, ../../sass/_base.scss */
+/* line 79, ../../sass/_base.scss */
 .login-form {
   margin: 0 auto;
   padding-top: 30px; }
 
-/* line 88, ../../sass/_base.scss */
+/* line 89, ../../sass/_base.scss */
 .chat {
   margin-top: 1rem !important;
   margin-left: 1rem; }
 
-/* line 92, ../../sass/_base.scss */
+/* line 93, ../../sass/_base.scss */
 button {
   background-color: black !important;
   color: black; }
 
-@-webkit-keyframes blackPulse {
-  from {
-    background-color: #000;
-    -webkit-box-shadow: 0 0 9px #333; }
-  50% {
-    background-color: #000;
-    -webkit-box-shadow: 0 0 18px #000; }
-  to {
-    background-color: #000;
-    -webkit-box-shadow: 0 0 9px #333; } }
 @-webkit-keyframes skyPulse {
   from {
     background-color: #1fbad6;
@@ -180,39 +171,49 @@ button {
   to {
     background-color: #1fbad6;
     -webkit-box-shadow: 0 0 9px #333; } }
-/* line 110, ../../sass/_base.scss */
+/* line 107, ../../sass/_base.scss */
 a.sky.button {
   -webkit-animation-name: skyPulse;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite; }
 
-/* line 118, ../../sass/_base.scss */
+@-webkit-keyframes blackPulse {
+  from {
+    background-color: #000;
+    -webkit-box-shadow: 0 0 9px #333; }
+  50% {
+    background-color: #000;
+    -webkit-box-shadow: 0 0 19px #000; }
+  to {
+    background-color: #000;
+    -webkit-box-shadow: 0 0 9px #333; } }
+/* line 119, ../../sass/_base.scss */
 a.black.button {
   -webkit-animation-name: blackPulse;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite; }
 
-/* line 124, ../../sass/_base.scss */
+/* line 125, ../../sass/_base.scss */
 .login-title {
   text-align: center; }
 
-/* line 129, ../../sass/_base.scss */
+/* line 130, ../../sass/_base.scss */
 .focused-view-subtitle {
   font-size: 17px;
   color: #c2c2c2;
   text-transform: uppercase; }
 
-/* line 135, ../../sass/_base.scss */
+/* line 136, ../../sass/_base.scss */
 p {
   line-height: 27px; }
 
-/* line 139, ../../sass/_base.scss */
+/* line 140, ../../sass/_base.scss */
 .border-center > span {
   display: inline-block;
   padding: 0 20px;
   background: #fff; }
 
-/* line 145, ../../sass/_base.scss */
+/* line 146, ../../sass/_base.scss */
 .border-center:after {
   background: #000;
   content: "";
@@ -220,6 +221,72 @@ p {
   height: 1px;
   margin-top: -12px; }
 
-/* line 152, ../../sass/_base.scss */
+/* line 153, ../../sass/_base.scss */
 .center {
   text-align: center; }
+
+/* line 157, ../../sass/_base.scss */
+.semi-top {
+  height: 3rem;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+
+@-webkit-keyframes whitePulse {
+  from {
+    background-color: #000;
+    -webkit-box-shadow: 0 0 9px #fff; }
+  50% {
+    background-color: #000;
+    -webkit-box-shadow: 0 0 20px #fff; }
+  to {
+    background-color: #000;
+    -webkit-box-shadow: 0 0 9px #fff; } }
+/* line 171, ../../sass/_base.scss */
+.subject-grid {
+  -webkit-animation-name: whitePulse !important;
+  -webkit-animation-duration: 2s !important;
+  -webkit-animation-iteration-count: infinite !important;
+  padding-top: 1.5rem; }
+
+/* line 181, ../../sass/_base.scss */
+.with-chevron {
+  padding-left: 1rem; }
+
+/* line 185, ../../sass/_base.scss */
+.review-list {
+  background-color: black; }
+
+/* line 188, ../../sass/_base.scss */
+.places {
+  color: black !important; }
+
+/* line 194, ../../sass/_base.scss */
+.block-list header {
+  margin-left: 2rem; }
+
+/* line 204, ../../sass/_base.scss */
+.detail-review {
+  padding-top: 2rem; }
+
+/* line 212, ../../sass/_base.scss */
+.menu-bar.dark {
+  background-image: url("https://d1a3f4spazzrp4.cloudfront.net/web-fresh/pattern-grid-dark@1x.gif") !important; }
+
+/* line 217, ../../sass/_base.scss */
+.navspace {
+  margin: 0; }
+
+/* line 222, ../../sass/_base.scss */
+.title-sepeartor {
+  margin: 0 !important; }
+
+/* line 227, ../../sass/_base.scss */
+.card {
+  -webkit-animation-name: whitePulse !important;
+  -webkit-animation-duration: 2s !important;
+  -webkit-animation-iteration-count: infinite !important; }
+
+/* line 234, ../../sass/_base.scss */
+.card-selection {
+  background-color: grey !important; }

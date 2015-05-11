@@ -36,6 +36,7 @@ h1 {
 
 .review-list{
   width:100%;
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 .button{
   background-color:black !important;
@@ -95,11 +96,7 @@ button{
 }
 
 
-@-webkit-keyframes blackPulse {
-  from { background-color: #000; -webkit-box-shadow: 0 0 9px #333; }
-  50% { background-color: #000; -webkit-box-shadow: 0 0 18px #000; }
-  to { background-color: #000; -webkit-box-shadow: 0 0 9px #333; }
-}
+
 
 @-webkit-keyframes skyPulse {
   from { background-color: #1fbad6; -webkit-box-shadow: 0 0 9px #333; }
@@ -113,7 +110,11 @@ a.sky.button {
   -webkit-animation-iteration-count: infinite;
 }
 
-
+@-webkit-keyframes blackPulse {
+  from { background-color: #000; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #000; -webkit-box-shadow: 0 0 19px #000; }
+  to { background-color: #000; -webkit-box-shadow: 0 0 9px #333; }
+}
 
 a.black.button {
   -webkit-animation-name: blackPulse;
@@ -151,4 +152,87 @@ p {
 }
 .center{
   text-align:center;
+}
+
+.semi-top{
+  height:3rem;
+  color:white;
+  margin-top:1rem;
+  margin-bottom: 1rem;
+}
+
+@-webkit-keyframes whitePulse {
+  from { background-color: #000; -webkit-box-shadow: 0 0 9px #fff; }
+  50% { background-color: #000; -webkit-box-shadow: 0 0 20px #fff; }
+  to { background-color: #000; -webkit-box-shadow: 0 0 9px #fff; }
+}
+
+
+.subject-grid{
+  -webkit-animation-name: whitePulse !important;
+  -webkit-animation-duration: 2s !important;
+  -webkit-animation-iteration-count: infinite !important;
+
+  padding-top:1.5rem;
+
+}
+
+
+.with-chevron{
+padding-left:1rem;
+}
+
+.review-list{
+  background-color:black;
+}
+.places{
+  color:black !important;
+}
+
+.block-list 
+{
+  header{
+    margin-left:2rem;
+    
+  
+  }
+  
+  
+  
+}
+
+.detail-review{
+  padding-top:2rem;
+
+
+
+}
+
+
+.menu-bar.dark {
+  background-image: url("https://d1a3f4spazzrp4.cloudfront.net/web-fresh/pattern-grid-dark@1x.gif") !important;
+  
+}
+
+.navspace{
+margin:0;
+
+}
+
+.title-sepeartor{
+  margin:0 !important;
+
+}
+
+.card{
+  -webkit-animation-name: whitePulse !important;
+  -webkit-animation-duration: 2s !important;
+  -webkit-animation-iteration-count: infinite !important;
+
+
+}
+.card-selection{
+
+  background-color:grey !important;
+
 }
