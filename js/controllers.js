@@ -87,14 +87,20 @@ helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', f
   }
   $scope.user = user;
   $scope.subjects = Subject.getSubjects();
-  //console.log($scope.subjects);
 
-  
-
-
-
- 
-
+  $scope.declare = function(subject) {
+    Subject.setSubject($scope.user, subject).then(
+      function(resp) {
+        //success
+        console.log(resp);
+        alert(subject + " has been set to your subject.");
+      },
+      function(resp) {
+        console.log(resp);
+        alert("set failed");
+      }
+    );
+  };
 
 }]);
 

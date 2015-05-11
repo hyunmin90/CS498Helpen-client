@@ -11,7 +11,7 @@
       <div class="grid-content" ng-repeat = "subject in subjects">  
         <div class="dark card">
           <img src="http://www.brainismindia.com/wp-content/uploads/2014/11/775-circuit-board-1366x768-abstract-wallpaper-2.jpg">
-          <div class="card-divider">
+          <div class="card-divider" ng-click="declare(subject.Name)">
             {{subject.Name}}
           </div>
           <div class="card-section">

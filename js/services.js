@@ -338,7 +338,7 @@ angular.module('helpenServices', [])
         checkin : function(userID, lat, lng) {
           return $http({
             method: 'POST',
-            url: 'http://104.236.213.176:4000/api/user' +
+            url: 'http://localhost:4000/api/user' +
             '?latlng=' + lat + ',' + lng + '&' +
             '?userID=' + userID
           });
@@ -346,14 +346,14 @@ angular.module('helpenServices', [])
         getFriendList :function(lat, lng){
           return $http({
             method: 'GET',
-            url: 'http://104.236.213.176:4000/api/user' +
+            url: 'http://localhost:4000/api/user' +
             '?latlng=' + lat + ',' + lng});
         },
 
         addUser : function(username, password, name, email) {
           return $http({
             method: 'POST',
-            url: 'http://104.236.213.176:4000/api/user/adduser/',
+            url: 'http://localhost:4000/api/user/adduser/',
             data: $.param({
               name: name,
               email: email,
@@ -368,7 +368,7 @@ angular.module('helpenServices', [])
           console.log(username + password);
           return $http({
             method: 'POST',
-            url: 'http://104.236.213.176:4000/api/login/',
+            url: 'http://localhost:4000/api/login/',
             data: $.param({
               username: username,
               password: password
@@ -383,11 +383,19 @@ angular.module('helpenServices', [])
     .factory('Subject', function($http){
       return {
         getSubjects : function() {
-          // var subjectList = [
-          //   { "Name": "ECE 330" },
-          //   { "Name": "CS 440" }
-          // ];
           return classes.subject;
+        },
+
+        setSubject : function(user, subject) {
+          return $http({
+            method: 'POST',
+            url: 'http://localhost:4000/api/user/addsubject',
+            data: $.param({
+              username: user,
+              subject: subject
+            }),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          });
         }
       }
     }).
