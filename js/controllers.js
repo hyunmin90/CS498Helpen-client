@@ -1,18 +1,15 @@
 var helpenControllers = angular.module('helpenControllers', []);
 
-helpenControllers.controller('FirstController', ['$scope', 'User', function($scope, User) {
+helpenControllers.controller('LoginController', ['$scope', 'User', function($scope, User) {
   // default location when gps not available
-  $scope.lat = 40.1095828;
-  $scope.lng = -88.2117322;
+  var lat = 40.1095828;
+  var lng = -88.2117322;
 
   navigator.geolocation.getCurrentPosition(
       function(pos) {
           // obtain coordinates
           lat = pos.coords.latitude;
           lng = pos.coords.longitude;
-
-          $scope.lat = lat;
-          $scope.lng = lng;
       },
 
       function(err) {
@@ -27,10 +24,9 @@ helpenControllers.controller('FirstController', ['$scope', 'User', function($sco
       }
   );
 
-}]);
+  sessionStorage.setItem('lat', lat);
+  sessionStorage.setItem('lng', lng);
 
-
-helpenControllers.controller('LoginController', ['$scope', 'User', function($scope, User) {
   $scope.login = function() {
     var id = $scope.username;
     var pw = $scope.password;
