@@ -60,10 +60,11 @@ helpenControllers.controller('LoginController', ['$scope', 'User', function($sco
 
 
 
-helpenControllers.controller('ChatController', ['$scope', 'User', function($scope, User) {
+helpenControllers.controller('ChatController', ['$scope','User', '$routeParams', function($scope, $routeParams, User) {
   var user = sessionStorage.getItem('login');
+  var sock = new SockJS('http://localhost:4000/chat/ugl');
   
-    var sock = new SockJS('http://helpenme.com:4000/chat');
+  
   $scope.messages = [];
         $scope.sendMessage = function() {
             sock.send($scope.messageText);
@@ -81,7 +82,8 @@ helpenControllers.controller('ChatController', ['$scope', 'User', function($scop
     window.location.assign("/");
   }
   $scope.user = user;
-
+  alert($routeParams.id);
+  
 }]);
 
 
