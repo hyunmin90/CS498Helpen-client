@@ -137,7 +137,7 @@ helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams'
   $scope.location = Location.getLocationByID($scope.id);
   console.log($scope.location);
 
-  var sock = new SockJS('http://localhost:4000/chat/'+$routeParams.id);
+  var sock = new SockJS('http://helpenme.com:4000/chat/'+$routeParams.id);
   
   $scope.messages = [];
   $scope.sendMessage = function() {
