@@ -172,8 +172,11 @@ angular.module('helpenServices', [])
             { "Name": "CS 440" }
           ];
           return subjectList;
-        },
-
+        }
+      }
+    }).
+    factory('Location', function($http){
+      return {
         getLocationbyPosition : function(currlat,currlongt) {
           var arr =[];
           var list = locations.places;
@@ -204,6 +207,18 @@ angular.module('helpenServices', [])
           });
           return arr;
       
+        },
+        getLocationByID : function(ID) {
+          var i = 0;
+          var retval = -1;
+          var list = locations.places;
+          for(i=0;i<list.length;i++) {
+            if(list[i].ID == ID) {
+                retval = list[i].Name;
+            }
+          }
+          return retval;
         }
-      }
-    });
+                
+    }
+});
