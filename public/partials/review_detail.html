@@ -5,13 +5,13 @@
 			<img src="http://www.brainismindia.com/wp-content/uploads/2014/11/775-circuit-board-1366x768-abstract-wallpaper-2.jpg">
 		</div>
 		<div class="small-8 columns">
-			<h3>{{id}}</h3>
+			<h3>{{ location.Name }}</h3>
 			<p>Overall status: Good<br>
 			Noise Level: Excellent<br>
 			Crowded: Barely<br>
 		</div>
 	</div>
-	
+
 	<div class="chat row">
 	    <ul>
 	      <li ng-repeat="message in messages track by $index">{{message}}</li>

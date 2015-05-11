@@ -258,7 +258,7 @@ angular.module('helpenServices', [])
           var list = locations.places;
           for(i=0;i<list.length;i++) {
             if(list[i].ID == ID) {
-                retval = list[i].Name;
+                retval = list[i];
             }
           }
           return retval;

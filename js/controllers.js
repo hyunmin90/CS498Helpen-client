@@ -132,8 +132,10 @@ helpenControllers.controller('ReviewController', ['$scope', 'Location', function
 
 }]);
 
-helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
+helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', 'Location', function($scope, $routeParams, Location) {
   $scope.id = $routeParams.id;
+  $scope.location = Location.getLocationByID($scope.id);
+  console.log($scope.location);
 
   var sock = new SockJS('http://localhost:4000/chat/'+$routeParams.id);
   
