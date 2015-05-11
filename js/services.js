@@ -459,25 +459,42 @@ angular.module('helpenServices', [])
     }).
     factory('Review', function($http) {
         return {
-         getReview:function() {
-            // return $http({
-            // method: 'GET',
-            // url: 'http://104.236.213.176:4000/api/user' +
-            // '?latlng=' + lat + ',' + lng});
+         getReview:function(buildingID) {
+             return $http({
+             method: 'POST',
+             url: 'http://104.236.213.176:4000/api/review/findreview/',
+             data: $.param({
+               buildingId: buildingID
+             }),
+             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+             });
+          },
+         addreview:function(buildingID, rating,numberOfParticipants) {
+            return $http({
+             method: 'POST',
+             url: 'http://104.236.213.176:4000/api/review/addreview/',
+             data: $.param({
+               buildingId: buildingID,
+               rating: rating,
+               numberOfParticipant: numberOfParticipants,
+               
+             }),
+             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+           });
 
-            },
+         },   
          sendReview:function(buildingID, rating, numberOfParticipants) {
-          //   return $http({
-          //   method: 'POST',
-          //   url: 'http://104.236.213.176:4000/api/user/adduser/',
-          //   data: $.param({
-          //     building: name,
-          //     email: email,
-          //     username: username,
-          //     password: password
-          //   }),
-          //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-          // });
+             return $http({
+             method: 'POST',
+             url: 'http://104.236.213.176:4000/api/review/updatereview/',
+             data: $.param({
+               buildingId: buildingID,
+               rating: rating,
+               numberOfParticipant: numberOfParticipants,
+               
+             }),
+             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+           });
 
            }
         }
