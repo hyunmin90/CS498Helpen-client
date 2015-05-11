@@ -1,11 +1,11 @@
 var helpenControllers = angular.module('helpenControllers', []);
 
-helpenControllers.controller('FirstController', ['$scope', 'User', function($scope, User) {
-  // default location when gps not available
+helpenControllers.controller('LoginController', ['$scope', 'User', 'Location', function($scope, User, Location) {
+  
   $scope.lat = 40.1095828;
   $scope.lng = -88.2117322;
 
-  navigator.geolocation.getCurrentPosition(
+navigator.geolocation.getCurrentPosition(
       function(pos) {
           // obtain coordinates
           lat = pos.coords.latitude;
@@ -13,7 +13,7 @@ helpenControllers.controller('FirstController', ['$scope', 'User', function($sco
 
           $scope.lat = lat;
           $scope.lng = lng;
-      },
+                },
 
       function(err) {
           console.error("Error fetching gps coordinates.");
@@ -27,17 +27,24 @@ helpenControllers.controller('FirstController', ['$scope', 'User', function($sco
       }
   );
 
-}]);
+  var build = Location.getLocationbyPosition($scope.lat, $scope.lng);
+  var building = build[0].ID;
+  console.log($scope.lng);
+  sessionStorage.setItem('location',building);
+  console.log(sessionStorage.getItem('location'));
 
 
-helpenControllers.controller('LoginController', ['$scope', 'User', function($scope, User) {
   $scope.login = function() {
+
+
     var id = $scope.username;
     var pw = $scope.password;
 
-    User.login(id, pw).then(
+
+
+    User.login(id, pw, building).then(
       function(resp) {
-        if (resp.status == 200) {
+        if (resp.status == 200  || resp.status == 201) {
           sessionStorage.setItem('login', id);
           window.location.assign("/#/subjects");
         } else {
@@ -93,6 +100,7 @@ helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', f
       function(resp) {
         //success
         console.log(resp);
+        sessionStorage.setItem('Subject', subject);
         alert(subject + " has been set to your subject.");
       },
       function(resp) {
@@ -104,27 +112,36 @@ helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', f
 
 }]);
 
-helpenControllers.controller('FriendController', ['$scope', 'User', function($scope, User) {
+helpenControllers.controller('FriendController', ['$scope', 'User','Subject', function($scope, User,Subject) {
   var user = sessionStorage.getItem('login');
   if(user === undefined || user == "" || user == null) {
     window.location.assign("/");
   }
   $scope.user = user;
   $scope.subjects = Subject.getSubjects();
-  $scope.friends = 
-         [{
-            "Name": "Hyounimin Wang",
-         },
-         {
-            "Name": "Dongmin Shin",
-         },
-         {
-            "Name": "Joon Hyung",
-         },
-         {
-            "Name": "Praful Mehrotra",
-         }];
-
+  console.log(sessionStorage.getItem('Subject'));
+  var result = Subject.getPeoplefromSubject().then(
+    function(resp) {
+      var data = resp.data.data;
+      var length = data.length;
+      var newdata = [];
+      var i =0;
+      for(i=0;i<length;i++) {
+        var element = data[i];
+        console.log(element);
+        if(element.location == sessionStorage.getItem('location') && element.subject == sessionStorage.getItem('Subject')) {
+          newdata.push(element);
+        }
+      }
+      console.log(newdata);
+      $scope.friends = newdata;
+      //console.log($scope.subjects);
+    },
+    function(resp) {
+      console.log("failure!");
+    });
+  
+  
 }]);
 
 helpenControllers.controller('ReviewController', ['$scope', 'Location', function($scope, Location) {

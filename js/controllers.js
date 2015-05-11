@@ -28,8 +28,8 @@ navigator.geolocation.getCurrentPosition(
   );
 
   var build = Location.getLocationbyPosition($scope.lat, $scope.lng);
-  var building = build[0];
-  console.log($scope.lat);
+  var building = build[0].ID;
+  console.log($scope.lng);
   sessionStorage.setItem('location',building);
   console.log(sessionStorage.getItem('location'));
 
@@ -129,7 +129,7 @@ helpenControllers.controller('FriendController', ['$scope', 'User','Subject', fu
       for(i=0;i<length;i++) {
         var element = data[i];
         console.log(element);
-        if(element.location == "siebel" && element.subject == sessionStorage.getItem('Subject')) {
+        if(element.location == sessionStorage.getItem('location') && element.subject == sessionStorage.getItem('Subject')) {
           newdata.push(element);
         }
       }

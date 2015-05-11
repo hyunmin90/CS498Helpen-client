@@ -5,97 +5,97 @@ var locations = {
             "ID": "siebel",
             "Name": "Thomas M Siebel Centre for Computer Science",
             "Lat": 40.113804,
-            "Long": -88.22491,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Long": -88.211732,
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "grainger",
             "Name": "Grainger Engineering Laboratory",
             "Lat": 40.1125,
             "Long": -88.22691,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "dcl",
             "Name": "Digital Computer Laboratory",
             "Lat": 40.113136,
             "Long": -88.22666,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "csl",
             "Name": "Coordinated Science Laboratory",
             "Lat": 40.114956,
             "Long": -88.22672,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "beckman",
             "Name": "Beckman Institute",
             "Lat": 40.115803,
             "Long": -88.227516,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "eceb",
             "Name": "Electrical and Computer Engineering Building",
             "Lat": 40.110523,
             "Long": -88.26953,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "ncsa",
             "Name": "National Centre for Supercomputing Applications",
             "Lat": 40.114918,
             "Long": -88.22486,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "everitt",
             "Name": "Everitt Laboratory",
             "Lat": 40.110523,
             "Long": -88.26953,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "mechanical",
             "Name": "Mechanical Engineering Building",
             "Lat": 40.110996,
             "Long": -88.22488,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "talbot",
             "Name": "Talbot Laboratory",
             "Lat": 40.111862,
             "Long": -88.228195,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "engineering",
             "Name": "Engineering hall",
             "Lat": 40.11086,
             "Long": -88.22688,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         },
         {
             "ID": "micro",
             "Name": "Micro and Nanotech Laboratory",
             "Lat": 40.113834,
             "Long": -88.2279,
-            "Latituderange": 0.00075,
-            "Longituderange": 0.00074
+            "Latituderange": 0.0042,
+            "Longituderange": 0.014
         }
     ]
 };
@@ -364,14 +364,15 @@ angular.module('helpenServices', [])
           });
         },
 
-        login : function(username, password) {
+        login : function(username, password, building) {
           console.log(username + password);
           return $http({
             method: 'POST',
             url: 'http://helpenme.com:4000/api/login/',
             data: $.param({
               username: username,
-              password: password
+              password: password,
+              location: building
             }),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
           });
@@ -381,12 +382,14 @@ angular.module('helpenServices', [])
       }
     })  
     .factory('Subject', function($http){
+      var currsubject = "";
       return {
         getSubjects : function() {
           return classes.subject;
         },
 
         setSubject : function(user, subject) {
+          currsubject = subject;  
           return $http({
             method: 'POST',
             url: 'http://helpenme.com:4000/api/user/addsubject',
@@ -396,6 +399,12 @@ angular.module('helpenServices', [])
             }),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
           });
+        },
+        getPeoplefromSubject : function() {
+            return $http({
+                method:'GET',
+                url: 'http://helpenme.com:4000/api/user'
+            });
         }
       }
     }).
@@ -411,8 +420,14 @@ angular.module('helpenServices', [])
             var latr = list[i].Latituderange;
             var longtr = list[i].Longituderange;
             var distance = 0;
-             if((lat - latr) <=  currlat && currlat<=(lat + latr)) {
-               if((longt - longtr) <=  currlongt && currlongt<=(longt + longtr)) {
+            //console.log(currlongt + "current");
+             if((Math.abs(lat) - latr) <=  Math.abs(currlat) && Math.abs(currlat)<=(Math.abs(lat) + latr)) {
+                //console.log("check");
+                //console.log(Math.abs(longt) - longtr);
+                console.log(Math.abs(longt) - longtr);
+                console.log(Math.abs(currlongt));
+               if((Math.abs(longt) - longtr) <=  Math.abs(currlongt) && Math.abs(currlongt)<=(Math.abs(longt) + longtr)) {
+                //console.log("check3");
                 distance = Math.pow(Math.abs(longt - currlongt),2) + Math.pow(Math.abs(lat - currlat),2);
                 distance = Math.sqrt(distance);
                 element["Distance"] = distance;
@@ -429,6 +444,7 @@ angular.module('helpenServices', [])
             }
           return 0;
           });
+          console.log(arr);
           return arr;
       
         },
@@ -459,25 +475,42 @@ angular.module('helpenServices', [])
     }).
     factory('Review', function($http) {
         return {
-         getReview:function() {
-            // return $http({
-            // method: 'GET',
-            // url: 'http://104.236.213.176:4000/api/user' +
-            // '?latlng=' + lat + ',' + lng});
+         getReview:function(buildingID) {
+             return $http({
+             method: 'POST',
+             url: 'http://104.236.213.176:4000/api/review/findreview/',
+             data: $.param({
+               buildingId: buildingID
+             }),
+             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+             });
+          },
+         addreview:function(buildingID, rating,numberOfParticipants) {
+            return $http({
+             method: 'POST',
+             url: 'http://104.236.213.176:4000/api/review/addreview/',
+             data: $.param({
+               buildingId: buildingID,
+               rating: rating,
+               numberOfParticipant: numberOfParticipants,
+               
+             }),
+             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+           });
 
-            },
+         },   
          sendReview:function(buildingID, rating, numberOfParticipants) {
-          //   return $http({
-          //   method: 'POST',
-          //   url: 'http://104.236.213.176:4000/api/user/adduser/',
-          //   data: $.param({
-          //     building: name,
-          //     email: email,
-          //     username: username,
-          //     password: password
-          //   }),
-          //   headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-          // });
+             return $http({
+             method: 'POST',
+             url: 'http://104.236.213.176:4000/api/review/updatereview/',
+             data: $.param({
+               buildingId: buildingID,
+               rating: rating,
+               numberOfParticipant: numberOfParticipants,
+               
+             }),
+             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+           });
 
            }
         }
