@@ -60,10 +60,9 @@ helpenControllers.controller('LoginController', ['$scope', 'User', function($sco
 
 
 
-helpenControllers.controller('ChatController', ['$scope','User', '$routeParams', function($scope, $routeParams, User) {
+helpenControllers.controller('ChatController', ['$scope','User', '$routeParams', function($scope, User, $routeParams) {
   var user = sessionStorage.getItem('login');
-  var sock = new SockJS('http://localhost:4000/chat/ugl');
-  
+  var sock = new SockJS('http://localhost:4000/chat/'+$routeParams.id);
   
   $scope.messages = [];
         $scope.sendMessage = function() {
@@ -78,13 +77,15 @@ helpenControllers.controller('ChatController', ['$scope','User', '$routeParams',
 
   
   
-  if(user === undefined || user == "" || user == null) {
-    window.location.assign("/");
-  }
+  //if(user === undefined || user == "" || user == null) {
+    //window.location.assign("/");
+  //}
   $scope.user = user;
-  alert($routeParams.id);
   
 }]);
+
+
+
 
 
 helpenControllers.controller('RegisterController', ['$scope', 'User', function($scope, User) {
@@ -161,7 +162,7 @@ helpenControllers.controller('ReviewController', ['$scope', 'Location', function
 }]);
 
 helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
-
+  alert($routeParams.id);
   $scope.id = $routeParams.id;
 
 }]);

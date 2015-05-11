@@ -60,11 +60,10 @@ helpenControllers.controller('LoginController', ['$scope', 'User', function($sco
 
 
 
-helpenControllers.controller('ChatController', ['$scope','User','$routeParams' , function($scope, $routeParams, User) {
+helpenControllers.controller('ChatController', ['$scope','User', '$routeParams', function($scope, User, $routeParams) {
   var user = sessionStorage.getItem('login');
-  var sock = new SockJS('http://localhost:4000/chat/ugl');
+  var sock = new SockJS('http://localhost:4000/chat/'+$routeParams.id);
   
-  alert($routeParams.id);
   $scope.messages = [];
         $scope.sendMessage = function() {
             sock.send($scope.messageText);
@@ -78,12 +77,15 @@ helpenControllers.controller('ChatController', ['$scope','User','$routeParams' ,
 
   
   
-  if(user === undefined || user == "" || user == null) {
-    window.location.assign("/");
-  }
+  //if(user === undefined || user == "" || user == null) {
+    //window.location.assign("/");
+  //}
   $scope.user = user;
-
+  
 }]);
+
+
+
 
 
 helpenControllers.controller('RegisterController', ['$scope', 'User', function($scope, User) {
@@ -131,7 +133,7 @@ helpenControllers.controller('FriendController', ['$scope', 'User', function($sc
     window.location.assign("/");
   }
   $scope.user = user;
-  $scope. = Subject.getSubjects();
+  $scope.subjects = Subject.getSubjects();
   $scope.friends = 
          [{
             "Name": "Hyounimin Wang",
@@ -145,5 +147,22 @@ helpenControllers.controller('FriendController', ['$scope', 'User', function($sc
          {
             "Name": "Praful Mehrotra",
          }];
+
+}]);
+
+helpenControllers.controller('ReviewController', ['$scope', 'Location', function($scope, Location) {
+  var user = sessionStorage.getItem('login');
+  if(user === undefined || user == "" || user == null) {
+    window.location.assign("/");
+  }
+  $scope.user = user;
+
+  $scope.places = Location.all();
+
+}]);
+
+helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
+  alert($routeParams.id);
+  $scope.id = $routeParams.id;
 
 }]);

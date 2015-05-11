@@ -22,6 +22,10 @@ helpen.config(['$locationProvider', '$routeProvider',
       templateUrl: 'partials/reviews.html',
       controller: 'ReviewController'
     }).
+    when('/reviews/:id', {
+      templateUrl: 'partials/review_detail.html',
+      controller: 'ReviewDetailController'
+    }).
     when('/register', {
       templateUrl: 'partials/register.html',
       controller: 'RegisterController'
