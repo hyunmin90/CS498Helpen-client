@@ -2,7 +2,7 @@
 var locations = {
           "places": [
         {
-            "ID": "SIEB",
+            "ID": "siebel",
             "Name": "Thomas M Siebel Centre for Computer Science",
             "Lat": 40.113804,
             "Long": -88.22491,
@@ -10,7 +10,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "GRNGR",
+            "ID": "grainger",
             "Name": "Grainger Engineering Laboratory",
             "Lat": 40.1125,
             "Long": -88.22691,
@@ -18,7 +18,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "DCL",
+            "ID": "dcl",
             "Name": "Digital Computer Laboratory",
             "Lat": 40.113136,
             "Long": -88.22666,
@@ -26,7 +26,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "CSL",
+            "ID": "csl",
             "Name": "Coordinated Science Laboratory",
             "Lat": 40.114956,
             "Long": -88.22672,
@@ -34,7 +34,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "BECKMAN",
+            "ID": "beckman",
             "Name": "Beckman Institute",
             "Lat": 40.115803,
             "Long": -88.227516,
@@ -42,7 +42,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "ECEB",
+            "ID": "eceb",
             "Name": "Electrical and Computer Engineering Building",
             "Lat": 40.110523,
             "Long": -88.26953,
@@ -50,7 +50,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "NCSA",
+            "ID": "ncsa",
             "Name": "National Centre for Supercomputing Applications",
             "Lat": 40.114918,
             "Long": -88.22486,
@@ -58,7 +58,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "EVRT",
+            "ID": "everitt",
             "Name": "Everitt Laboratory",
             "Lat": 40.110523,
             "Long": -88.26953,
@@ -66,7 +66,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "MEB",
+            "ID": "mechanical",
             "Name": "Mechanical Engineering Building",
             "Lat": 40.110996,
             "Long": -88.22488,
@@ -74,7 +74,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "TLBT",
+            "ID": "talbot",
             "Name": "Talbot Laboratory",
             "Lat": 40.111862,
             "Long": -88.228195,
@@ -82,7 +82,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "ENG",
+            "ID": "engineering",
             "Name": "Engineering hall",
             "Lat": 40.11086,
             "Long": -88.22688,
@@ -90,7 +90,7 @@ var locations = {
             "Longituderange": 0.00074
         },
         {
-            "ID": "MNL",
+            "ID": "micro",
             "Name": "Micro and Nanotech Laboratory",
             "Lat": 40.113834,
             "Long": -88.2279,
@@ -207,7 +207,7 @@ angular.module('helpenServices', [])
 
 
       }
-    })
+    })  
     .factory('Subject', function($http){
       return {
         getSubjects : function() {
