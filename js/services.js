@@ -174,12 +174,10 @@ angular.module('helpenServices', [])
           return subjectList;
         },
 
-        getLocationbyPosition : function(lat,longt) {
+        getLocationbyPosition : function(currlat,currlongt) {
           var arr =[];
           var list = locations.places;
           for(i=0;i<list.length;i++) {
-            var currlat = 40.1138;
-            var currlongt = -88.2279;
             var lat = list[i].Lat;
             var longt = list[i].Long;
             var latr = list[i].Latituderange;
