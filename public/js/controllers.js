@@ -116,16 +116,22 @@ helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', f
   $scope.subjects = Subject.getSubjects();
   //console.log($scope.subjects);
 
+  
+
+
+
+ 
+
 
 }]);
 
 helpenControllers.controller('FriendController', ['$scope', 'User', function($scope, User) {
   var user = sessionStorage.getItem('login');
-  // if(user === undefined || user == "" || user == null) {
-  //   window.location.assign("/");
-  // }
+  if(user === undefined || user == "" || user == null) {
+    window.location.assign("/");
+  }
   $scope.user = user;
-  //$scope. = Subject.getSubjects();
+  $scope. = Subject.getSubjects();
   $scope.friends = 
          [{
             "Name": "Hyounimin Wang",

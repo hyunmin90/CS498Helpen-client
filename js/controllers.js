@@ -117,16 +117,22 @@ helpenControllers.controller('SubjectController', ['$scope', 'User','Subject', f
   $scope.subjects = Subject.getSubjects();
   //console.log($scope.subjects);
 
+  
+
+
+
+ 
+
 
 }]);
 
 helpenControllers.controller('FriendController', ['$scope', 'User', function($scope, User) {
   var user = sessionStorage.getItem('login');
-  // if(user === undefined || user == "" || user == null) {
-  //   window.location.assign("/");
-  // }
+  if(user === undefined || user == "" || user == null) {
+    window.location.assign("/");
+  }
   $scope.user = user;
-  //$scope. = Subject.getSubjects();
+  $scope.subjects = Subject.getSubjects();
   $scope.friends = 
          [{
             "Name": "Hyounimin Wang",
@@ -140,5 +146,22 @@ helpenControllers.controller('FriendController', ['$scope', 'User', function($sc
          {
             "Name": "Praful Mehrotra",
          }];
+
+}]);
+
+helpenControllers.controller('ReviewController', ['$scope', 'Location', function($scope, Location) {
+  var user = sessionStorage.getItem('login');
+  if(user === undefined || user == "" || user == null) {
+    window.location.assign("/");
+  }
+  $scope.user = user;
+
+  $scope.places = Location.all();
+
+}]);
+
+helpenControllers.controller('ReviewDetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
+
+  $scope.id = $routeParams.id;
 
 }]);

@@ -2,11 +2,10 @@
 <div class="review-list">
   <section class="block-list">
   <header>Library</header>
-  <ul>
 
-  <li class="with-chevron"><a href="#">Grainger</a></li>
-  <li class="with-chevron"><a href="#">Under graduate Library</a></li>
-  <li><a href="#">ACES</a></li>
+  <ul>
+  <li ng-repeat="place in places" class="with-chevron"><a href="/#/reviews/{{ place.ID }}">{{ place.Name }}</a></li>
   </ul>
+
   </section>
 </div>
